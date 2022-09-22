@@ -4,7 +4,7 @@ const idValidation = require('../middlewares/idValidation');
 
 const talkerRoutes = express.Router();
 
-talkerRoutes.get('/', async (req, res) => {
+talkerRoutes.get('/', async (_req, res) => {
     const data = await readContent();
     res.status(200).json(data);
 });
