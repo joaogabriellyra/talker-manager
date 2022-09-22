@@ -38,9 +38,17 @@ const changeTalker = async (id, { name, age, talk }) => {
     return data[id - 1];
 };
 
+const deleteTalker = async (id) => {
+    const data = await readContent();
+    const newData = data.filter((_, index) => index !== id - 1);
+    console.log(newData);
+    await fs.writeFile(filename, JSON.stringify(newData));
+};
+
 module.exports = {
     readContent,
     getTalkerById,
     writeTalker,
     changeTalker,
+    deleteTalker,
 };

@@ -1,5 +1,6 @@
 const express = require('express');
-const { readContent, getTalkerById, writeTalker, changeTalker } = require('../utils/readAndWrite');
+const { readContent, getTalkerById, writeTalker, changeTalker,
+     deleteTalker } = require('../utils/readAndWrite');
 const idValidation = require('../middlewares/idValidation');
 const tokenValidation = require('../middlewares/tokenValidation');
 const nameValidation = require('../middlewares/nameValidation');
@@ -18,6 +19,12 @@ talkerRoutes.get('/:id', idValidation, async (req, res) => {
 
     const data = await getTalkerById(id);
     res.status(200).json(data);
+});
+
+talkerRoutes.delete('/:id', tokenValidation, async (req, res) => {
+    const { id } = req.params;
+    await deleteTalker(id);
+    res.status(204).json({});
 });
 
 talkerRoutes.use(tokenValidation, nameValidation, ageValidation, talkAndWatchedAtValidation,
