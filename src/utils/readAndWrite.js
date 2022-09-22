@@ -12,7 +12,22 @@ const getTalkerById = async (id) => {
     return JSON.parse(file)[id - 1];
 };
 
+const writeTalker = async (file) => {
+    const data = await readContent();
+    const { name, age, talk } = file;
+    const talkerToBeInserted = {
+        name,
+        age, 
+        id: data.length + 1,
+        talk,
+    };
+    await data.push(talkerToBeInserted);
+    await fs.writeFile(filename, JSON.stringify(data));
+    return talkerToBeInserted;
+};
+
 module.exports = {
     readContent,
     getTalkerById,
+    writeTalker,
 };
