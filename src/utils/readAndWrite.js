@@ -45,10 +45,17 @@ const deleteTalker = async (id) => {
     await fs.writeFile(filename, JSON.stringify(newData));
 };
 
+const getTalkerByName = async (name) => {
+    const data = await readContent();
+    const newData = data.filter((talker) => talker.name.includes(name));
+    return newData;
+};
+
 module.exports = {
     readContent,
     getTalkerById,
     writeTalker,
     changeTalker,
     deleteTalker,
+    getTalkerByName,
 };
