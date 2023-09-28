@@ -28,7 +28,6 @@ The Talker Management API is a RESTful application built using Node.js and Expre
 ### To run the project locally and start managing speakers, follow these steps:
 The .env file has been commited to facilitate.
 
-
 ### Clone this repository:
 ```
 git clone https://github.com/joaogabriellyra/talker-manager.git
