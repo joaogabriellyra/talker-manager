@@ -22,7 +22,7 @@ The Talker Management API is a RESTful application built using Node.js and Expre
 * Dotenv
 * ESLint
 * Nodemon
-* Snakeize / Camelize
+* Crypto
 
 ## Getting Started
 ### To run the project locally and start managing speakers, follow these steps:
