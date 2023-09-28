@@ -47,6 +47,7 @@ http://localhost:3001
 ```
 
 ## Routes
+### Login
 <details>
 <summary><b>/login</b></summary>
 <br />
@@ -60,6 +61,8 @@ http://localhost:3001
 ```
 ![login](https://i.ibb.co/Vqbvgjy/Captura-de-tela-de-2023-09-28-02-30-31.png)
 </details>
+
+### Talker
 <details>
 <summary><b>/talker</b></summary>
 <br />
@@ -106,26 +109,19 @@ http://localhost:3001
 ]
 ```
 
-- POST: Create a new product.
+- POST: Register a new talker.
 ```
-{
-  "name": "Quad Blasters"
-}
+  {
+    "name": "Gaules",
+    "age": 39,
+    "talk": {
+      "watchedAt": "28/09/2023",
+      "rate": 5
+    }
+  }
 ```
-![Peter Quill](https://i.ibb.co/XYDwyGd/Captura-de-tela-de-2023-09-25-02-36-11.png)
+![Gaules](https://i.ibb.co/F0KKXXp/Captura-de-tela-de-2023-09-28-02-59-22.png)
 </details>
-
-<details>
-<summary><b>/products/search?q=</b></summary>
-<br />
-
-- GET: Searches for products with matching name, passed as a query
-
-```
-URL EXAMPLE: /products/search?q=PartOfProductName
-```
-</details>
-
 <details>
 <summary><b>/talker/:id</b></summary>
 <br />
@@ -152,72 +148,14 @@ URL EXAMPLE: /products/search?q=PartOfProductName
 - DELETE: Delete a talker by ID.
 </details>
 
-### Sales:
-
 <details>
-<summary><b>/sales</b></summary>
+<summary><b>/talker/search?q=</b></summary>
 <br />
 
-- GET: Retrieve a list of all sales
-```
-[
-  {
-    "saleId": 1,
-    "date": "2023-09-25T04:13:16.000Z",
-    "productId": 1,
-    "quantity": 5
-  },
-  {
-    "saleId": 1,
-    "date": "2023-09-25T04:13:16.000Z",
-    "productId": 2,
-    "quantity": 10
-  },
-  {
-    "saleId": 2,
-    "date": "2023-09-25T04:13:16.000Z",
-    "productId": 3,
-    "quantity": 15
-  }
-]
-```
-- POST: Create a new sale
-  - It requires an array of objects to be passed to the request, with the following format:
+- GET: /talker/search/:query: Search for talkers based on a query.
 
 ```
- [
-   {
-     "productId": 1,
-     "quantity": 1
-   },
-   {
-     "productId": 2,
-     "quantity": 5
-   }
- ]
+http://localhost:3001/talker/search?q=Clóvis
 ```
-</details>
-
-<details>
-<summary><b>/sales/:id</b></summary>
-<br />
-
-- GET: Retrieve a specific sale by ID
-
-- PUT: Update an existing sale by ID
-  - It requires an array of objects to be passed to the request, with the following format:
-
-```
- [
-   {
-     "productId": 1,
-     "quantity": 1
-   },
-   {
-     "productId": 2,
-     "quantity": 5
-   }
- ]
-```
-- DELETE: Remove a sale by ID
+![Talker query](https://i.ibb.co/FX1sjNh/Captura-de-tela-de-2023-09-28-02-53-12.png)
 </details>
